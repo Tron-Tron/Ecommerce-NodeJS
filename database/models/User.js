@@ -55,9 +55,6 @@ UserSchema.pre("save", async function (next) {
   next();
 });
 
-// hien tai chua can update password, bua sau a chi update password
-// e viet code sai nhieu qua, buon
-
 // UserSchema.pre("findOneAndUpdate", async function () {
 //   const salt = await bcrypt.genSalt(12);
 //   this._update.password = await bcrypt.hash(this._update.password, salt); // ????????????????
@@ -72,7 +69,6 @@ UserSchema.methods.generateAuthToken = async function () {
   return token;
 };
 
-// ko viet arrow function
 UserSchema.statics.comparePassword = async function (password, hashedPassword) {
   return await bcrypt.compare(password, hashedPassword);
 };
